@@ -12,9 +12,11 @@ const generateCanvas = (colors) => {
   const canvas = createCanvas(800, 1000);
   const ctx = canvas.getContext("2d");
 
-  // Set canvas background color
-  ctx.fillStyle = "#CCCCCC"; // Replace with your desired color
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // Draw checker pattern background with subtle colors
+  const squareSize = 50; // Example size, adjust as needed
+  const color1 = '#f5f5f5'; // Light muted shade
+  const color2 = '#e0e0e0'; // Darker muted shade
+  drawCheckerPatternBackground(ctx, canvas.width, canvas.height, squareSize, color1, color2);
 
   const overlappingCircleRadius = 40;
   const bigCircleRadius = 120;
@@ -51,17 +53,41 @@ const saveCanvasToFile = (canvas, filename) => {
   }
 };
 
+const hslToHex = (hsl) => {
+    let [h, s, l] = hsl.match(/\d+/g).map(Number); // Ensure h, s, and l are numbers
+  
+    l /= 100;
+    s /= 100;
+    const a = s * Math.min(l, 1 - l);
+    const f = n => {
+      const k = (n + h / 30) % 12;
+      const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+      return Math.round(255 * color).toString(16).padStart(2, '0');
+    };
+    return `#${f(0)}${f(8)}${f(4)}`;
+  };
+  
 const displayColorHexValues = (colors, ctx, startX, startY, spacing) => {
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "#000"; // Set text color (adjust if necessary)
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#000"; // Set text color (adjust if necessary)
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+  
+    colors.forEach((color, index) => {
+      const x = startX;
+      const y = startY + index * spacing;
+      const hexColor = color.startsWith('hsl') ? hslToHex(color) : color; // Convert to hex if in HSL
+      ctx.fillText(hexColor.toUpperCase(), x, y); // Display in uppercase for consistency
+    });
+  };
 
-  colors.forEach((color, index) => {
-    const x = startX;
-    const y = startY + index * spacing;
-    ctx.fillText(color, x, y);
-  });
-};
+const drawCheckerPatternBackground = (ctx, canvasWidth, canvasHeight, squareSize, color1, color2) => {
+    for (let y = 0; y < canvasHeight; y += squareSize) {
+      for (let x = 0; x < canvasWidth; x += squareSize) {
+        ctx.fillStyle = (x / squareSize + y / squareSize) % 2 === 0 ? color1 : color2;
+        ctx.fillRect(x, y, squareSize, squareSize);
+      }
+    }
+  };
 
 module.exports = { generateCanvas, saveCanvasToFile };

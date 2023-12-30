@@ -37,12 +37,12 @@ Each line should contain one color in hexadecimal format, starting with `#`. For
 The script generates an image file (`palette.png`) in the `output` directory, showcasing the color palettes in various formats.
 
 ### Example Outputs
-![palette 1](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/7b329edd-c1fb-49e9-86f6-6f21af1efc76)
 
-![palette 2](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/95a477a5-de38-4821-a4a5-8638163cc8fe)
+![3](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/89705e7f-db56-4ade-99a3-2b970eb9ab20)
 
-![palette 3](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/fd91d0bc-d0d4-4700-afc1-025535832f44)
+![5](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/77ccb7d2-abb1-4168-a8bc-c69b886f787f)
 
+![2](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/64743e1b-6253-413c-8597-4bc9be1fa0b7)
 
 ## Customization
 You can customize the canvas size, module placement, and color palette formats by modifying the `canvasManager.js` and individual module files.
