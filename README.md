@@ -38,11 +38,9 @@ The script generates an image file (`palette.png`) in the `output` directory, sh
 
 ### Example Outputs
 
-![3](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/89705e7f-db56-4ade-99a3-2b970eb9ab20)
-
-![5](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/77ccb7d2-abb1-4168-a8bc-c69b886f787f)
-
-![2](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/64743e1b-6253-413c-8597-4bc9be1fa0b7)
+![1](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/6a917ff9-edba-427c-b707-e10668d4b226)  ![2](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/d02298bc-a2ba-4f99-8584-86c387865d4b)
+![3](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/459856df-e1bc-4abf-8f37-0d432051a76d)  ![4](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/eb9c2df8-54d6-4df6-8a1a-73e2ddf8a3c2)
+![5](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/2d8b9be5-370f-4994-b08d-551dd60d9cf5)  ![6](https://github.com/mohsenny/dynamic-color-pallet/assets/1129811/170c512d-4185-4f48-b030-d15aa526bd6c)
 
 ## Customization
 You can customize the canvas size, module placement, and color palette formats by modifying the `canvasManager.js` and individual module files.
