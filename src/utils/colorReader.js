@@ -2,27 +2,31 @@ const fs = require("fs");
 const path = require("path");
 
 const generateUXFriendlyColors = (numColors) => {
-  // Generate a random base hue for each palette
   const baseHue = Math.floor(Math.random() * 360);
-  const hueIncrement = Math.floor(360 / numColors); // Ensures a wide range of hues
+  const hueIncrement = Math.floor(360 / numColors);
 
   let colors = [];
 
   for (let i = 0; i < numColors; i++) {
-    // Adjust hue for each color to ensure variety
     const currentHue = (baseHue + i * hueIncrement) % 360;
-    
     let adjustSaturation, adjustLightness;
+    let colorType = Math.floor(Math.random() * 3); // Randomly select color type
 
-    // Alternate between different saturation and lightness for contrast
-    if (i % 2 === 0) {
-      // More saturated and darker for contrast
-      adjustSaturation = 70 + Math.floor(Math.random() * 30); // 70% to 100%
-      adjustLightness = 20 + Math.floor(Math.random() * 40); // 20% to 60%
-    } else {
-      // Less saturated and lighter
-      adjustSaturation = 30 + Math.floor(Math.random() * 40); // 30% to 70%
-      adjustLightness = 60 + Math.floor(Math.random() * 40); // 60% to 100%
+    // Define a variable range for randomness
+    let randomRange = Math.floor(Math.random() * 10) + 35; // Range between 35 and 45
+
+    switch (colorType) {
+      case 0: // Bold
+        adjustSaturation = 60 + Math.floor(Math.random() * randomRange); // 60% to 100%
+        adjustLightness = 30 + Math.floor(Math.random() * randomRange); // 30% to 100%
+        break;
+      case 1: // Pastel
+        adjustSaturation = 20 + Math.floor(Math.random() * randomRange); // 20% to 60%
+        adjustLightness = 70 + Math.floor(Math.random() * randomRange); // 70% to 100%
+        break;
+      default: // Completely random
+        adjustSaturation = Math.floor(Math.random() * 100); // 0% to 100%
+        adjustLightness = Math.floor(Math.random() * 100); // 0% to 100%
     }
 
     colors.push(`hsl(${currentHue}, ${adjustSaturation}%, ${adjustLightness}%)`);
