@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 const generateUXFriendlyColors = (numColors) => {
   const baseHue = Math.floor(Math.random() * 360);
@@ -36,12 +36,21 @@ const generateUXFriendlyColors = (numColors) => {
 };
 
 const readColorsFromFile = () => {
-  const filePath = path.join(__dirname, "..", "assets", "colors.txt");
-  const data = fs.readFileSync(filePath, "utf8");
-  return data.split(/\r?\n/).filter((line) => line.startsWith("#"));
+  const filePath = path.join(__dirname, '..', 'assets', 'colors.txt');
+  const data = fs.readFileSync(filePath, 'utf8');
+  return data.split(/\r?\n/).filter((line) => line.startsWith('#'));
 };
 
-const getColors = (useRandomColors = false, numColors = 5) => {
+const getColors = (useRandomColors = false, countIndex) => {
+  let numColors = 5; // Default value
+
+  if (countIndex > 2 && countIndex < process.argv.length - 1) {
+    const countValue = parseInt(process.argv[countIndex + 1]);
+    if (!isNaN(countValue)) {
+      numColors = countValue; // Set numColors to the provided value if it's a valid number
+    }
+  }
+
   return useRandomColors ? generateUXFriendlyColors(numColors) : readColorsFromFile();
 };
 

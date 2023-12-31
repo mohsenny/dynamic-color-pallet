@@ -1,12 +1,15 @@
-const drawCirclePalette = (colors, ctx, radius, x, y) => {
-  const radiusDecrement = radius / colors.length; // Decrement for each inner circle
+const drawCirclePalette = (colors, ctx, x, y, totalWidth, totalHeight) => {
+  // The largest circle should have a radius that is half the size of the module
+  const maxRadius = Math.min(totalWidth, totalHeight) / 2;
 
-  colors.forEach((color) => {
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+  // Start with the largest circle and draw inwards
+  colors.forEach((color, index) => {
     ctx.fillStyle = color;
+    ctx.beginPath();
+    // Subtract the index from colors.length to start with the largest circle
+    const radius = (maxRadius * (colors.length - index)) / colors.length;
+    ctx.arc(x + totalWidth / 4, y + totalHeight / 4, radius, 0, Math.PI * 2);
     ctx.fill();
-    radius -= radiusDecrement; // Reduce the radius for the next circle
   });
 };
 

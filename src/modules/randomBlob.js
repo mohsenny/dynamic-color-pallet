@@ -5,8 +5,8 @@ const drawRandomBlob = (colors, ctx, x, y) => {
     ctx.fillStyle = color;
     ctx.globalAlpha = 1.0;
     const radius = Math.random() * 40 + 10;
-    const cx = x + Math.random() * 300;
-    const cy = y + Math.random() * 300;
+    const cx = x + Math.random() * 200;
+    const cy = y + Math.random() * 150;
     ctx.arc(cx, cy, radius, 0, 2 * Math.PI);
     ctx.fill();
   }

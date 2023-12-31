@@ -22,6 +22,7 @@ node app.js [options]
 
 Options:
 - `--random`: Generates a canvas with a random color palette.
+- `--count {number}`: Generates a canvas with a color palette for the given number of colors. (`{number} > 3`)
 
 Without any options, the script will read color values from `assets/colors.txt`.
 
@@ -29,8 +30,15 @@ Without any options, the script will read color values from `assets/colors.txt`.
 Each line should contain one color in hexadecimal format, starting with `#`. For example:
 ```
 #FF5733
-#33FF57
-#3357FF
+#38FF57
+#A357E2
+```
+
+### Examples
+```bash
+node ./app.js 
+node ./app.js --random
+node ./app.js --random --count 7
 ```
 
 ## Output

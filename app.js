@@ -1,9 +1,9 @@
-const { generateCanvas, saveCanvasToFile } = require("./src/canvasManager");
-const getColors = require("./src/utils/colorReader");
+const { generateCanvas, saveCanvasToFile } = require('./src/canvasManager');
+const getColors = require('./src/utils/colorReader');
 
-const useRandomColors = process.argv.includes("--random");
-const numColors = 5; // Define how many colors you want to generate
-const colors = getColors(useRandomColors, numColors);
+const useRandomColors = process.argv.includes('--random');
+const countIndex = process.argv.indexOf('--count');
+const colors = getColors(useRandomColors, countIndex);
 
 const canvas = generateCanvas(colors);
-saveCanvasToFile(canvas, "palette.png");
+saveCanvasToFile(canvas, 'palette.png');
