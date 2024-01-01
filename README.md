@@ -21,7 +21,7 @@ node app.js [options]
 ```
 
 Options:
-- `--random`: Generates a canvas with a random color palette.
+- `--random`: Generates a canvas with a random color palette. The default would be 5 colors. 
 - `--count {number}`: Generates a canvas with a color palette for the given number of colors. (`{number} > 3`)
 
 Without any options, the script will read color values from `assets/colors.txt`.
